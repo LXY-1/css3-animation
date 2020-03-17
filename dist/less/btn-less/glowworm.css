@@ -1,0 +1,100 @@
+@keyframes fall-down-animation {
+  100% {
+    bottom: 100%;
+  }
+}
+.start-fall-down {
+  outline: none;
+  border: none;
+  width: 180px;
+  height: 60px;
+  position: relative;
+  background: linear-gradient(to right, #6eb46e 10%, #55b455);
+  border-radius: 40px;
+  opacity: 0.8s;
+  cursor: pointer;
+}
+.start-fall-down:hover {
+  box-shadow: 0 0 10px #b4ffb4;
+}
+.start-fall-down:hover .bot-wrap {
+  box-shadow: 0 0 4px #b4ffb4 inset;
+}
+.start-fall-down:hover .bot-wrap ul {
+  opacity: 0.8;
+}
+.start-fall-down p {
+  line-height: 60px;
+  font-size: 22px;
+  text-shadow: 0 0 10px #fff;
+  color: #f5bbdf;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.88;
+  letter-spacing: 3px;
+}
+.start-fall-down .bot-wrap {
+  width: 95%;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 40px;
+  transition: 0.8s;
+  overflow: hidden;
+}
+.start-fall-down .bot-wrap ul {
+  list-style: none;
+  opacity: 1;
+  transition: 0.8s;
+}
+.start-fall-down .bot-wrap ul li {
+  width: 5px;
+  height: 5px;
+  background-color: #91fa91;
+  position: absolute;
+  bottom: 10%;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: fall-down-animation infinite linear;
+}
+.start-fall-down .bot-wrap ul li:nth-child(0) {
+  left: 0%;
+  bottom: 16px;
+  animation-duration: 1.460802009079904s;
+}
+.start-fall-down .bot-wrap ul li:nth-child(1) {
+  left: 12.5%;
+  bottom: 2px;
+  animation-duration: 1.194203045139159s;
+}
+.start-fall-down .bot-wrap ul li:nth-child(2) {
+  left: 25%;
+  bottom: 1px;
+  animation-duration: 1.8304543746505093s;
+}
+.start-fall-down .bot-wrap ul li:nth-child(3) {
+  left: 37.5%;
+  bottom: -9px;
+  animation-duration: 3.924295560517174s;
+}
+.start-fall-down .bot-wrap ul li:nth-child(4) {
+  left: 50%;
+  bottom: 11px;
+  animation-duration: 3.277281632299318s;
+}
+.start-fall-down .bot-wrap ul li:nth-child(5) {
+  left: 62.5%;
+  bottom: 17px;
+  animation-duration: 2.9954896708633587s;
+}
+.start-fall-down .bot-wrap ul li:nth-child(6) {
+  left: 75%;
+  bottom: 11px;
+  animation-duration: 4.691694585708852s;
+}
+.start-fall-down .bot-wrap ul li:nth-child(7) {
+  left: 87.5%;
+  bottom: -4px;
+  animation-duration: 2.182108346331969s;
+}

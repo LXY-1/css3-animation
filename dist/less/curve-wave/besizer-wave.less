@@ -1,0 +1,48 @@
+@wave-font-bg:#2a5caa; //海浪前景色
+@wave-back-bg: #224b8f; // 海浪后景色
+@size:210px;
+
+.besizer-wave{
+    width: @size;
+    height: @size;
+    border: 1px solid #2a5caa;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    .besizer-wave-svg-wrap{
+        width: 100%;
+        height: 100%;
+        //不动部分波浪，可以自由控制高度
+        background: @wave-font-bg;
+        transform: translate(0,45%);
+        z-index: -1;
+        svg{
+            // 配合svg viewbbox 根据外层div大小缩放波浪曲线大小，实现适配
+            width: 200%;
+            position: absolute;
+            bottom: 100%;
+        }
+        .besizer-wave-back{
+            right: 0;
+            fill: @wave-back-bg;
+            animation: wave-back 1.4s infinite linear;
+        }
+        .besizer-wave-front{
+            left: 0;
+            fill: @wave-font-bg;
+            margin-bottom: -1px;
+            animation: wave-front 0.7s infinite linear;
+        }
+        @keyframes wave-front {
+            100% {
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes wave-back {
+            100% {
+                transform: translate(50%, 0);
+            }
+        }
+    }
+}

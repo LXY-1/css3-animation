@@ -1,0 +1,55 @@
+.border-right {
+  border-right: 2px solid #e67e22;
+}
+.card {
+  width: 300px;
+  height: 200px;
+  color: #fff;
+  font-size: 1.1em;
+  background: #e67e22;
+  letter-spacing: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(45deg);
+}
+.card::before,
+.card::after {
+  content: '';
+  width: 50%;
+  height: 100%;
+  background: #e74c3c;
+  position: absolute;
+  transition: 0.6s;
+  cursor: pointer;
+}
+.card::before {
+  content: '生日';
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transform-origin: left;
+  border-right: 2px solid #e67e22;
+  box-sizing: border-box;
+  padding-right: 3px;
+}
+.card::after {
+  content: '快乐';
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  transform-origin: right;
+  padding-left: 4px;
+  box-sizing: border-box;
+}
+.card:hover::before {
+  transform: rotateY(-180deg);
+}
+.card:hover::after {
+  transform: rotateY(180deg);
+}

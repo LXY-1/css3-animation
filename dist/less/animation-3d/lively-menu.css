@@ -1,0 +1,101 @@
+.menu-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #d2553d;
+  position: relative;
+  cursor: pointer;
+}
+.menu-button .middle-content {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.menu-button .circle-menu {
+  list-style: none;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) /* 一开始隐藏菜单按钮 */ scale(0);
+  transition: 1.05s;
+}
+.menu-button .circle-menu li {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #d2553d;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-size: 18px;
+  position: absolute;
+  transform-origin: 100px 100px;
+  transition: 1s;
+}
+.menu-button .circle-menu span {
+  display: inline-block;
+  transition: 1s;
+}
+.menu-button:hover .circle-menu {
+  transform: translate(-50%, -50%) scale(1);
+}
+.menu-button:hover li:nth-child(1) {
+  transform: rotate(40deg);
+}
+.menu-button:hover li:nth-child(1) span {
+  transform: rotate(320deg);
+}
+.menu-button:hover li:nth-child(2) {
+  transform: rotate(80deg);
+}
+.menu-button:hover li:nth-child(2) span {
+  transform: rotate(640deg);
+}
+.menu-button:hover li:nth-child(3) {
+  transform: rotate(120deg);
+}
+.menu-button:hover li:nth-child(3) span {
+  transform: rotate(960deg);
+}
+.menu-button:hover li:nth-child(4) {
+  transform: rotate(160deg);
+}
+.menu-button:hover li:nth-child(4) span {
+  transform: rotate(1280deg);
+}
+.menu-button:hover li:nth-child(5) {
+  transform: rotate(200deg);
+}
+.menu-button:hover li:nth-child(5) span {
+  transform: rotate(1600deg);
+}
+.menu-button:hover li:nth-child(6) {
+  transform: rotate(240deg);
+}
+.menu-button:hover li:nth-child(6) span {
+  transform: rotate(1920deg);
+}
+.menu-button:hover li:nth-child(7) {
+  transform: rotate(280deg);
+}
+.menu-button:hover li:nth-child(7) span {
+  transform: rotate(2240deg);
+}
+.menu-button:hover li:nth-child(8) {
+  transform: rotate(320deg);
+}
+.menu-button:hover li:nth-child(8) span {
+  transform: rotate(2560deg);
+}
+.menu-button:hover li:nth-child(9) {
+  transform: rotate(360deg);
+}
+.menu-button:hover li:nth-child(9) span {
+  transform: rotate(2880deg);
+}

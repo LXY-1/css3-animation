@@ -1,0 +1,60 @@
+// 文字呈现动画--交错呈现
+
+//01 居中单词先出现左右两侧依次出现
+/**
+* 思路:
+* 这里文字从中间单词开始向左右依次展开的话，一个是中间的动画先执行，
+* 第一点
+* 假使是淡入的话就中间的先淡入，左右两侧的一次淡入
+* 一种属性状态的过渡，可以使用transition，以及它的一个动画延迟参数
+* 算法公式：delay + Math.abs(i - middle) * step
+* 第二点
+* 单词个数是计数还是偶数
+**/
+
+@font-word-num: 5;// 单词个数
+@font-word-size: 25px; // 最终单词的字体大小
+@font-middle-wrod-ind: floor(@font-word-num / 2) + mod(@font-word-num,2);
+// @font-middld-wold-index1 :  @font-word-num / 2 + mod(@font-word-num,2) - 1; // 第一个中间单词的索引
+// @font-middld-wold-index2 : if(mod(@font-word-num,2) = 0, @font-middld-wold-index1 + 1, @font-middld-wold-index1); //如果是奇数个第二个中间数索引就是上一个，否则是上一个索引加一
+@font-delay: 0.5s; //动画延迟时间以及动
+
+.font-wrap{
+    word-spacing: 12px;
+    color: #fff;
+    span{
+        letter-spacing: 8px;
+        animation: font-fade 2s;
+        animation-fill-mode: forwards;
+        opacity: 0;
+    }
+    // 给各个单词进行动画延迟了
+    .for(@ind) when (@ind <= @font-word-num){
+        .font@{ind}{
+            // 不同单词的延迟时间：核心
+            animation-delay: abs(@ind - @font-middle-wrod-ind) * @font-delay;
+        }
+        .for((@ind + 1));
+    }
+    .for(1);
+    
+}
+// 单词出现的基础动画效果
+@keyframes font-fade {
+    from {
+        opacity: 0;
+        font-size: 0px;
+    }
+    to {
+        opacity: 1;
+        font-size: @font-word-size;
+        text-shadow: 0 0 10px #fff;
+    }
+}
+
+
+
+
+
+
+

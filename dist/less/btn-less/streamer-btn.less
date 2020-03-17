@@ -1,0 +1,47 @@
+@import (reference) "./btn-base.less";
+// 炫彩流光按钮
+.streamer{
+    position: relative;
+    .btn-border;
+    width: 200px;
+    height: @btn-height;
+    .font-style;
+    box-sizing: border-box;
+    background-color: #03a9f4;
+    background-image: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 30px;
+    &:hover{
+        animation: streamer 8s linear infinite;
+    }
+    @keyframes streamer {
+        0%{
+            background-position-x: 0%;
+        }
+        100%{
+            background-position-x: 400%;
+        }
+    }
+    //光晕效果——通过伪元素实现：设置同样的背景渐变以及同样的背景动画效果以及滤镜：模糊效果——实现同步改变
+    &::before{
+        content: '';
+        position: absolute;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        top: -5px;
+        z-index: -1;
+        background-color: #03a9f4;
+        background-image: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4); 
+        background-size: 400%;
+        border-radius: 40px;
+        transition: .5s;
+        opacity: 0;
+        
+    }
+    &:hover::before{
+        filter: blur(20px);
+        opacity: 1;
+        animation: streamer 8s linear infinite;
+    }
+}

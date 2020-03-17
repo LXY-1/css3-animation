@@ -1,0 +1,41 @@
+// 3d淡入淡出 ： z轴控制，rotateY旋转控制，设置透视，动画过程
+@width:400px;
+@height:400px;
+@bg:#ff0080;
+.fade-3d{
+    width:@width;
+    height: @height;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) perspective(900px) translateZ(-450px) rotateY(90deg);
+    background: #ff0080;
+    border-radius: 5px;
+    animation: move 2s ease-in-out ;
+    font-size: 25px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    line-height: @height;
+    opacity: 0;
+    box-shadow: 0 0 10px @bg;
+    &{
+        @keyframes move{
+            50%{
+               transform: translateX(-50%) translateY(-50%) perspective(900px) translateZ(-250px) rotateY(89deg);
+               box-shadow: 0 0 20px @bg;
+               opacity: 1;
+            }
+            90%{
+               transform: translateX(-50%) translateY(-50%) perspective(900px) translateZ(0px) rotateY(-10deg);
+               box-shadow: 0 0 30px @bg;
+               opacity: 1;
+            }
+            100%{
+               transform: translateX(-50%) translateY(-50%) perspective(900px) translateZ(0px) rotateY(0deg);
+               box-shadow: 0 0 40px @bg;
+               opacity: 1;
+            }
+        }
+    }
+}

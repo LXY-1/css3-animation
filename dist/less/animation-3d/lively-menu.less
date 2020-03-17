@@ -1,0 +1,67 @@
+// 旋转动感圆形菜单
+@menu-item-size:50px;
+@menu-item-wrap-size:200px;
+@menu-middle-size:100px;
+@item-num:9;//菜单数目
+.menu-button{
+    width:@menu-item-size;
+    height: @menu-item-size;
+    border-radius: 50%;
+    background: #d2553d;
+    position: relative;
+    cursor: pointer;
+    .middle-content{
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .circle-menu {
+        list-style: none;
+        width: @menu-item-wrap-size;
+        height: @menu-item-wrap-size;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%)  /* 一开始隐藏菜单按钮 */scale(0);
+        transition: 1.05s;
+        li {
+            width: @menu-item-size;
+            height: @menu-item-size;
+            border-radius: 50%;
+            background: #d2553d;
+            text-align: center;
+            line-height:@menu-item-size;
+            color: #fff;
+            font-size: 18px;
+            position: absolute;
+            transform-origin: @menu-item-wrap-size/2 @menu-item-wrap-size/2;
+            transition: 1s;
+        
+        }
+        span{
+            display: inline-block;
+            transition: 1s;
+        }
+    }
+    &:hover .circle-menu{
+        transform:  translate(-50%,-50%) scale(1);
+    }
+     
+    .for(@ind) when (@ind <= @item-num){
+        &:hover li:nth-child(@{ind}){
+            transform: rotate(@ind*40deg);
+        }
+        &:hover li:nth-child(@{ind}) span{
+            transform: rotate(360deg * @ind - @ind*40deg);
+        }
+        .for((@ind + 1));
+    }
+    .for(1);
+}
+
+
+

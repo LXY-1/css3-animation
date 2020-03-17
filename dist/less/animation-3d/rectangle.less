@@ -1,0 +1,116 @@
+   /* 长方体的话具备长宽高三个属性，此时无法通过像正方体那样旋六个div构成的正方形面,所以我们需要根据不同面的特点进行旋转和移动*/
+        /* 构造一个长宽高:400*200*200的长方体 */
+@length:400px;//长
+@height:200px;//高
+@breadth:200px;//宽 ； z
+
+        .rectangle {
+            width: @length;
+            height: @height;
+            position: relative;
+            transform: perspective(900px);
+            transform-style: preserve-3d;
+            transform-origin: center center -@breadth/2;
+            animation: rectangle-move 6s infinite;
+        }
+
+        .rectangle div {
+            position: absolute;
+            background: #27ae60;
+            font-size: 3em;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: .8;
+
+        }
+
+        .rectangle div span {
+            display: inline-block;
+            transform-origin: center center -@breadth/2;
+        }
+
+        .rectangle div:nth-child(1) {
+            width: @length;
+            height: @height;
+            background: #e67e22;
+        }
+
+        .rectangle div:nth-child(2) {
+            width: @length;
+            height: @height;
+            background: #2980b9;
+            transform: translateZ(-200px);
+        }
+        .rectangle div:nth-child(2) span{
+            transform: rotateY(-180deg);
+        }
+
+
+        .rectangle div:nth-child(3) {
+            width: @breadth;
+            height: @height;
+            transform-origin: right;
+            background: #e7c43c;
+            transform: translateX(@length - @breadth) rotateY(-90deg) ;
+        }
+
+        .rectangle div:nth-child(3) span {
+            transform: rotateY(-180deg);
+        }
+
+        .rectangle div:nth-child(4) {
+            width: @breadth;
+            height: @height;
+            transform-origin: left;
+            background: #8e44ad;
+            transform: rotateY(90deg);
+        }
+
+        .rectangle div:nth-child(4) span {
+            transform: rotateY(-180deg);
+        }
+
+        /* 盖和底部 */
+        .rectangle div:nth-child(5) {
+            width: @length;
+            height: @breadth;
+            transform-origin: left top;
+            background: #009ad6;
+            transform: rotateX(-90deg);
+
+        }
+
+        .rectangle div:nth-child(5) span {
+            transform: rotateX(-180deg);
+        }
+
+        .rectangle div:nth-child(6) {
+            width: @length;
+            height: @breadth;
+            transform-origin: left bottom;
+            background: #563624;
+            transform: rotateX(90deg);
+        }
+
+        .rectangle div:nth-child(6) span {
+            transform: rotateX(-180deg);
+        }
+
+    
+
+        @keyframes rectangle-move{
+         60%{
+            transform-origin: center center -@breadth/2;
+             transform: perspective(900px) rotateY(-270deg);
+         }
+         80%{
+            transform-origin: center center -@breadth/2;
+             transform: perspective(900px) rotateX(-90deg);
+         }
+         100%{
+            transform-origin: center center -@breadth/2;
+             transform: perspective(900px) rotateX(-270deg);
+         }
+     }

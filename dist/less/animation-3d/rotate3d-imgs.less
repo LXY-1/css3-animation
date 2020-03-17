@@ -1,0 +1,55 @@
+// 3d旋转图集效果，两种模式：正常模式：旋转之前看不到正背面的图片，不规则模式，旋转之前空间图片都可以看得到
+// 正常模式：.commone | 非正常模式: .uncommone
+
+@carousel-item-size-width:250px;
+@carousel-item-size-height:200px;
+@carousel-num:4;
+@rotate-deg:360deg/4;
+.carousel-3d{
+    width: @carousel-item-size-width;
+    height: @carousel-item-size-height;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(-45deg);
+    transform-origin: center center -200px;
+    transition: 1s;
+    div{
+        width: @carousel-item-size-width;
+        height: @carousel-item-size-height;
+        position: absolute;
+    }
+    div img{
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+    }
+    .for(@ind) when(@ind <= @carousel-num){
+        div:nth-child(@{ind}){
+           transform-origin: center center -200px;
+           transform: rotateY(@rotate-deg * @ind)
+        }
+        .for((@ind+1))
+    }
+    .for(1)
+}
+//不规则模式旋转：旋转之前看得到全部空间上的图片
+.uncommone{
+    animation: uncommoneAni 2s infinite;
+}
+@keyframes uncommoneAni{
+    100%{
+        transform-origin: center center -200px;
+        transform: perspective(900px) rotateX(-45deg) rotateY(550deg);
+    }
+}
+//规则模式旋转：选择之前看不见正背面图片
+.commone{
+    transform: perspective(900px); 
+    animation: commoneAni 2s infinite;
+}
+@keyframes commoneAni{
+    100%{
+        transform-origin: center center -200px;
+        transform: perspective(900px)  rotateY(550deg);
+    }
+}

@@ -1,0 +1,84 @@
+// 星星粒子，随机飘落效果
+
+// 导入基础的按钮样式,reference:不需要输出基础样式的css代码
+@import (reference) "./btn-base.less";
+// 粒子颜色
+@bot-bg: #91fa91;
+@bot-size: 5px;
+@bot-num: 8;
+@horizontal-spacing: 1%;
+
+@keyframes fall-down-animation{
+    100%{
+        bottom: 100%;
+    }
+}
+.start-fall-down{
+    .btn-border;
+     width: @btn-width;
+     height: @btn-height;
+     //定位
+    //   .btn-position-absolute;
+    position: relative;
+     //背景样式
+     .btn-bg-success;
+     &:hover{
+         .btn-hover-success;
+         .bot-wrap{
+             box-shadow: 0 0 4px #b4ffb4 inset;
+         }
+         .bot-wrap ul{
+             opacity: .8;
+         }
+     }
+     p{
+         line-height: 60px;
+         font-size: 22px;
+         text-shadow: 0 0 10px #fff; 
+         color: #f5bbdf;
+         font-family: Arial, Helvetica, sans-serif;
+         opacity: .88;
+         letter-spacing: 3px;
+     }
+     .bot-wrap{
+         width: 95%;
+         height: 80%;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         border-radius: 40px;
+         transition: .8s;
+         overflow: hidden;
+         ul{
+             list-style: none;
+             opacity: 1;
+             transition: .8s;
+             li{
+                 width: @bot-size;
+                 height: @bot-size;
+                 background-color: @bot-bg;
+                 position: absolute;
+                 bottom: 10%;
+                 border-radius: 50%;
+                 opacity: .6;
+                 animation: fall-down-animation infinite linear;
+                 .for(@ind) when(@ind<8){
+                     @bottom-value: ~`Math.round(Math.random() * 30 + -10)`;
+                     @animation-time: ~`Math.random() * 4 + 1`;
+                    &:nth-child(@{ind}){
+                        left: @ind * ( 100 / @bot-num) * @horizontal-spacing;
+                        //嵌入js代码,产生随机数-20 到 10 的随机数
+                        bottom: ~'@{bottom-value}px';
+                        animation-duration: ~'@{animation-time}s';
+                    }
+                    .for(@ind + 1)
+                }
+                .for(0)
+             }
+             
+            
+         }
+     }
+
+}
