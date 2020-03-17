@@ -1,0 +1,37 @@
+.btn-3d {
+  color: #fff;
+  display: flex;
+  height: 55px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3em;
+  text-decoration: none;
+  letter-spacing: 3px;
+  position: relative;
+  background: #e74c3c;
+  /* 整个倾斜，看起来更有立体效果 */
+  transform: skew(15deg) rotate(5deg);
+}
+.btn-3d::before {
+  content: '';
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  background: #000;
+  left: -10px;
+  transform: skewY(-45deg) translate(0, 5px);
+}
+.btn-3d:active {
+  transform: skew(15deg) rotate(5deg) scale(0.95);
+  background: #380702;
+}
+.btn-3d::after {
+  content: '';
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  background: #000;
+  bottom: -10px;
+  transform: skewX(-45deg) translate(-5px, 0);
+}

@@ -1,0 +1,57 @@
+.water-ripple {
+  position: relative;
+  transform: rotateX(70deg);
+}
+.water-ripple span {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: ripple 4s linear infinite;
+}
+.water-ripple span:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.water-ripple span:nth-child(3) {
+  animation-delay: 1.6s;
+}
+.water-ripple span:nth-child(4) {
+  animation-delay: 2.4s;
+}
+.water-ripple span:nth-child(5) {
+  animation-delay: 3.2s;
+}
+.water-ripple span:nth-child(6) {
+  animation-delay: 4s;
+}
+.water-ripple span:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.water-ripple span:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.water-ripple span:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.water-ripple span:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.water-ripple span:nth-child(2) {
+  animation-delay: 0.8s;
+}
+@keyframes ripple {
+  0% {
+    border: 4px solid #8e44ad;
+    background: #9b59b670;
+  }
+  100% {
+    border: none;
+    background: #9b59b670;
+    width: 400px;
+    height: 400px;
+    top: 20px;
+    opacity: 0;
+  }
+}

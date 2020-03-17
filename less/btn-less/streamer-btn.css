@@ -1,0 +1,46 @@
+.streamer {
+  position: relative;
+  outline: none;
+  border: none;
+  width: 200px;
+  height: 60px;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+  box-sizing: border-box;
+  background-color: #03a9f4;
+  background-image: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 30px;
+}
+.streamer:hover {
+  animation: streamer 8s linear infinite;
+}
+@keyframes streamer {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 400%;
+  }
+}
+.streamer::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  top: -5px;
+  z-index: -1;
+  background-color: #03a9f4;
+  background-image: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 40px;
+  transition: 0.5s;
+  opacity: 0;
+}
+.streamer:hover::before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: streamer 8s linear infinite;
+}

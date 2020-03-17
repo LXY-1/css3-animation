@@ -1,0 +1,24 @@
+// 图片缩放相关效果
+.zoom{
+    img{
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: .6s;
+    }
+    transition: .6s;
+}
+//缩小,加模糊
+.narrow{
+   &:hover{
+    transform: scale(.6);
+    filter: blur(3px);
+   }
+}
+.enlarge{
+    &:hover{
+      img{
+          transform: scale(1.3);
+      }
+    }
+}

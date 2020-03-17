@@ -1,0 +1,34 @@
+// 文字填充背景图片
+
+@font-wave-size: 3em;
+@font-wave-color: rgba(255,255,255,.3);
+@font-p-width:600px;
+@font-p-height:100px;
+@font-wave-image: '../../imgs/water.png';
+
+// 01 文字波浪效果
+.text-wave{
+    // width: @font-p-width;
+    font-size: @font-wave-size;
+    // p元素定位需要设置成absoulte脱离文档流，这样可以使得p元素的宽度只取决于内部（内容）文字大小，内容多大它的宽度就多大。不会是默认的100%宽度
+    // 我们的需求：文字多大p元素的宽度就刚好占满多大位置
+    position: absolute;
+    color: @font-wave-color;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background-image: url(@font-wave-image);
+    background-size: 100% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    // 背景定位，类似绝对定位，默认是在elft;0,top:0位置，可以根据自己的需要进行合适的调整
+    background-position-y: 5px;
+    animation: wave 10s linear infinite;
+    @keyframes wave {
+        0%{
+            background-position: 0 0;
+        }
+        100%{
+            background-position: 1000px 0;
+        }
+    }
+}

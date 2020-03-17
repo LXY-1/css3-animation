@@ -1,0 +1,110 @@
+// 边框跑马灯效果按钮
+@import (reference) "./btn-base.less";
+// 四条边框的大小，还有渐变颜色
+@size: 3px;
+@color-left: rgba(255,255,255,.3);
+@color-right: #f441a5;
+.wheel-btn{
+    position: relative;
+    .btn-border;
+    width: 250px;
+    height: 100px;
+    .font-style;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
+    background: transparent;
+    overflow: hidden;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        bottom: 2px;
+        width: 50%;
+        background: rgba(255, 255, 255, .05);
+    }
+    span:nth-child(1){
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: @size;
+        background-color: #1779ff;//不兼容css3渐变属性的浏览器显示
+        //左侧颜色使用rgba看起来与右侧形成一定近大远小。
+        background-image: linear-gradient(to right, @color-left, @color-right);
+       // 移动动画
+       animation: topSideMOve 2s linear infinite;
+       transform: translateX(-100%);
+       animation-delay: 1s;
+    }
+    span:nth-child(2){
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: @size;
+        height: 100%;
+        background-color: #1779ff;//不兼容css3渐变属性的浏览器显示
+        //左侧颜色使用rgba看起来与右侧形成一定近大远小。
+        background-image: linear-gradient(to bottom, @color-left, @color-right);
+        animation: rightSideMOve 2s linear infinite;
+        background-size: 200%;
+    }
+    span:nth-child(3){
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: @size;
+        background-color: #1779ff;//不兼容css3渐变属性的浏览器显示
+        //左侧颜色使用rgba看起来与右侧形成一定近大远小。
+        background-image: linear-gradient(to left, @color-left, @color-right);
+        animation: bottomSideMOve 2s linear infinite;
+        animation-delay: 1s;
+        transform: translateX(100%);
+        // background-size: 200%;
+    }
+    span:nth-child(4){
+        position: absolute;
+        left:0;
+        bottom: 0;
+        width: @size;
+        height: 100%;
+        background-color: #1779ff;//不兼容css3渐变属性的浏览器显示
+        //左侧颜色使用rgba看起来与右侧形成一定近大远小。
+        background-image: linear-gradient(to top, @color-left, @color-right);
+        animation: leftSideMOve 2s linear infinite;
+        // background-size: 200%;
+    }
+    // 动画--上边框流动
+    @keyframes topSideMOve {
+        0%{
+            transform: translateX(-100%);
+        }
+        100%{
+            transform: translateX(100%);
+        }
+    }
+    @keyframes rightSideMOve {
+        0%{
+            transform: translateY(-100%);
+        }
+        100%{
+            transform: translateY(100%);
+        }
+    }
+    @keyframes bottomSideMOve {
+        0%{
+            transform: translateX(100%);
+        }
+        100%{
+            transform: translateX(-100%);
+        }
+    }
+    @keyframes leftSideMOve {
+        0%{
+            transform: translateY(100%);
+        }
+        100%{
+            transform: translateY(-100%);
+        }
+    }
+}

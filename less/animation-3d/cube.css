@@ -1,0 +1,94 @@
+  /* 正方形的话，六个面的旋转可以按照中心点可以旋转，也可以按照 xy轴点旋转，中心点比较有规律，比较简单 */
+  .cube{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform: perspective(900px);
+    transform-style: preserve-3d;
+    transform-origin: center center 100px;
+    animation: cube-move 6s infinite;
+}
+.cube div{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background: #27ae60;
+    font-size: 3em;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center center 100px;
+    opacity: .8;
+
+}
+.cube div span{
+    display: inline-block;
+    transform-origin: center center 100px;
+}
+.cube div:nth-child(1){
+    background: #e67e22;
+    transform: rotateY(180deg);
+}
+.cube div:nth-child(1) span{
+    transform: rotateY(180deg);
+}
+
+.cube div:nth-child(2){
+    background: #2980b9;
+    transform: rotateY(270deg);
+}
+.cube div:nth-child(2) span{
+    transform: rotateY(-180deg);
+}
+.cube div:nth-child(3){
+    background: #e7c43c;
+    transform: rotateY(90deg);
+}
+.cube div:nth-child(3) span{
+    transform: rotateY(-180deg);
+}
+
+.cube div:nth-child(4){
+    background: #8e44ad;
+    transform: rotateY(360deg);
+}
+.cube div:nth-child(4) span{
+    transform: rotateY(-180deg);
+}
+/* 盖和底部 */
+.cube div:nth-child(5){
+    background: #009ad6;
+    
+    transform: rotateX(90deg);
+}
+.cube div:nth-child(5) span{
+    transform: rotateX(270deg);
+}
+.cube div:nth-child(5) span{
+    transform: rotateX(-180deg);
+}
+.cube div:nth-child(6){
+    background: #563624;
+    transform: rotateX(-90deg);
+}
+.cube div:nth-child(6) span{
+    transform: rotateX(-180deg);
+}
+body:hover .cube{
+    transform: perspective(900px) rotateY(-360deg);
+}
+@keyframes cube-move{
+    60%{
+        transform-origin: center center 100px;
+        transform: perspective(900px) rotateY(-270deg);
+    }
+    80%{
+        transform-origin: center center 100px;
+        transform: perspective(900px) rotateX(90deg);
+    }
+    100%{
+        transform-origin: center center 100px;
+        transform: perspective(900px) rotateX(270deg);
+    }
+}

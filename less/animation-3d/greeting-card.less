@@ -1,0 +1,62 @@
+// 3d可翻开生日贺卡
+@width:300px;
+@height:200px;
+@color:#fff;
+@font-size:1.1em;
+@bg-inside:#e67e22;
+@bg-outside:#e74c3c;
+.border-right{
+    border-right: 2px solid @bg-inside;
+}
+.card{
+    width: @width;
+    height: @height;
+    color: @color;
+    font-size: @font-size;
+    background: @bg-inside;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(45deg);
+    &::before,&::after{
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: @bg-outside;
+        position: absolute;
+        transition: .6s;
+        cursor: pointer;
+    }
+    &::before{
+        content: '生日';
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        transform-origin: left;
+        .border-right;
+        box-sizing: border-box;
+        padding-right: 3px;
+    }
+    &::after{
+        content: '快乐';
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        transform-origin: right;
+        padding-left: 4px;
+        box-sizing: border-box;
+    }
+    &:hover::before{
+        transform: rotateY(-180deg);
+    }
+    &:hover::after{
+        transform: rotateY(180deg);
+    }
+}
+

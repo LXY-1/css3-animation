@@ -1,0 +1,21 @@
+.text-wave {
+  font-size: 3em;
+  position: absolute;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  background-image: url('../../imgs/water.png');
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-position-y: 5px;
+  animation: wave 10s linear infinite;
+}
+@keyframes wave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}

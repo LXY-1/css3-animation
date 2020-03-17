@@ -1,0 +1,46 @@
+/**
+* 思路:
+* 这里文字从中间单词开始向左右依次展开的话，一个是中间的动画先执行，
+* 第一点
+* 假使是淡入的话就中间的先淡入，左右两侧的一次淡入
+* 一种属性状态的过渡，可以使用transition，以及它的一个动画延迟参数
+* 算法公式：delay + Math.abs(i - middle) * step
+* 第二点
+* 单词个数是计数还是偶数
+**/
+.font-wrap {
+  word-spacing: 12px;
+  color: #fff;
+}
+.font-wrap span {
+  letter-spacing: 8px;
+  animation: font-fade 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.font-wrap .font1 {
+  animation-delay: 1s;
+}
+.font-wrap .font2 {
+  animation-delay: 0.5s;
+}
+.font-wrap .font3 {
+  animation-delay: 0s;
+}
+.font-wrap .font4 {
+  animation-delay: 0.5s;
+}
+.font-wrap .font5 {
+  animation-delay: 1s;
+}
+@keyframes font-fade {
+  from {
+    opacity: 0;
+    font-size: 0px;
+  }
+  to {
+    opacity: 1;
+    font-size: 25px;
+    text-shadow: 0 0 10px #fff;
+  }
+}

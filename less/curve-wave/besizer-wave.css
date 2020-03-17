@@ -1,0 +1,41 @@
+.besizer-wave {
+  width: 210px;
+  height: 210px;
+  border: 1px solid #2a5caa;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+.besizer-wave .besizer-wave-svg-wrap {
+  width: 100%;
+  height: 100%;
+  background: #2a5caa;
+  transform: translate(0, 45%);
+  z-index: -1;
+}
+.besizer-wave .besizer-wave-svg-wrap svg {
+  width: 200%;
+  position: absolute;
+  bottom: 100%;
+}
+.besizer-wave .besizer-wave-svg-wrap .besizer-wave-back {
+  right: 0;
+  fill: #224b8f;
+  animation: wave-back 1.4s infinite linear;
+}
+.besizer-wave .besizer-wave-svg-wrap .besizer-wave-front {
+  left: 0;
+  fill: #2a5caa;
+  margin-bottom: -1px;
+  animation: wave-front 0.7s infinite linear;
+}
+@keyframes wave-front {
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes wave-back {
+  100% {
+    transform: translate(50%, 0);
+  }
+}
